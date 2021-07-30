@@ -66,11 +66,11 @@ saveJson = json.loads(saveResponse.text)
 
 # 第三方 SMTP 服务
 mail_host = "smtp.qq.com"  # 设置服务器
-mail_user = "2819237058@qq.com"  # 用户名
-mail_pass = "lyimhkqaudcudfbd"  # 口令
+mail_user = "161800286@qq.com"  # 用户名
+mail_pass = "wapkipjketumbgjb"  # 口令
 
-sender = '2819237058@qq.com'
-receivers = ['3492720037@qq.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+sender = '161800286@qq.com'
+receivers = ['1312990146@qq.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
 
 message = MIMEText(saveJson['m'], 'plain', 'utf-8')
 message['From'] = Header("疫情防控通填报通知", 'utf-8')
