@@ -63,6 +63,25 @@ saveResponse = conn.post(
 )
 
 saveJson = json.loads(saveResponse.text)
+#微信推送服务
+def push_wx(sckey, desp):
+
+
+    if sckey == '':
+        print("[注意] 未提供sckey，不进行推送！")
+    else:
+        server_url = f"https://sc.ftqq.com/{sckey}.send"
+        params = {
+            "text": "疫情防控"+time.strftime('%Y-%m-%d'),
+            "desp": str(desp)  #这里改了 str(desp)
+        }
+        headers = {
+            'content-type':"text/html;charset=utf-8"
+        }
+
+        response = requests.get(server_url, params=params, headers=headers)
+        print(response)
+
 
 # 第三方 SMTP 服务
 mail_host = "smtp.qq.com"  # 设置服务器
@@ -88,3 +107,4 @@ try:
 except smtplib.SMTPException:
     print("Error: 无法发送邮件")
 print(saveJson['m'])
+push_wx('SCT56907T9hw7m6BNbjH3MmETUFTL1mpD', saveJson['m'])
